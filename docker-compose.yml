@@ -1,0 +1,34 @@
+services:
+  apache_tssr:
+    # si je voulais construire une image toute faite
+    # image: reference
+    build: apache
+    container_name: apache_tssr # Nom du container
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./www:/var/www/html
+    environment:
+      - PHP_ERROR_REPORTING=E_ALL
+      - PHP_DISPLAY_ERRORS=On
+    depends_on:
+      - basetssr
+
+  basetssr:
+    image: mariadb:latest
+    container_name: basetssr
+    ports:
+      - "3306:3306" # natage ports bdd
+    volumes:
+      - basetssr:/var/lib/mysql
+      - ./datafile:/script
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    environment:
+      TZ: UTC
+    env_file:
+      - .env
+
+volumes:
+  basetssr:
