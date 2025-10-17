@@ -1,0 +1,5 @@
+###> info de base ###
+.env
+
+/.env
+datafile/*.sql

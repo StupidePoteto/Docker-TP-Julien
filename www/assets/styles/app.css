@@ -59,8 +59,259 @@ nav {
     transform: scale(1.1);
 }
 
-
 body {
     background-color: #483d8b;
     color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 80vh;
+}
+
+/* ===== REGISTER PAGE STYLES ===== */
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px);
+    padding: 40px 20px;
+}
+
+.register-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.register-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+}
+
+.register-subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    animation: fadeIn 0.8s ease-out backwards;
+}
+
+.form-group:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.form-group:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.form-group:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.form-group:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.form-group:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.form-label {
+    font-weight: 600;
+    color: #fff;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.form-input {
+    padding: 14px 16px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form-input:focus {
+    border-color: blueviolet;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2);
+    transform: translateY(-2px);
+}
+
+.form-input:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.form-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: blueviolet;
+}
+
+.checkbox-label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.form-errors,
+.form-group .invalid-feedback {
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    padding: 8px 12px;
+    background: rgba(255, 107, 107, 0.15);
+    border-left: 3px solid #ff6b6b;
+    border-radius: 5px;
+}
+
+.btn {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-register {
+    background: linear-gradient(135deg, blueviolet 0%, #9b59b6 100%);
+    color: white;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+}
+
+.btn-register:hover {
+    background: linear-gradient(135deg, #9b59b6 0%, #c364fa 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.6);
+}
+
+.btn-register:active {
+    transform: translateY(-1px);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-link p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+
+.link-login {
+    color: #c364fa;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.link-login:hover {
+    color: blueviolet;
+}
+
+.link-login::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: blueviolet;
+    transition: width 0.3s ease;
+}
+
+.link-login:hover::after {
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .register-card {
+        padding: 30px 20px;
+    }
+
+    .register-title {
+        font-size: 2rem;
+    }
+
+    .register-subtitle {
+        font-size: 1rem;
+    }
+
+    .form-input {
+        padding: 12px 14px;
+    }
+
+    .btn-register {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
 }
